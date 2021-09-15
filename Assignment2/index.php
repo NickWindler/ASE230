@@ -14,9 +14,14 @@ $students = [
 					continue doing some type of dev work in the future as well.",
 		'quote' => '"I can not think of a quote to put here" -Nick Windler',
 		'skills' => [
-			"Cooking" => "1%",
-			"Information Technologies" => "50%",
-			"Random Knowledge That Does Not Help Me in Life" => "90%"
+			"Cooking",
+			"Information Technologies",
+			"Random Knowledge That Does Not Help Me in Life",
+		],
+		'percentages' => [
+			"1%",
+			"50%",
+			"90%"
 		],
 		'fact' => "I have two cats with three legs, I have been to the Grand Canyon, and I can eat a lot of 
 					Spaghetti in one sitting."
@@ -30,9 +35,14 @@ $students = [
 		'intro' => "I want to become an accountant to commit numerous amounts of white collar crime like Accounting Fraud.",
 		'quote' => '"You Either Die A Hero, Or You Live Long Enough To See Yourself Become The Villain" -Harvey Dent',
 		'skills' => [
-			"Being a Respectable Citizen" => "5%",
-			"Accounting" => "50%",
-			"Committing Crimes" => "99%"
+			"Being a Respectable Citizen",
+			"Accounting",
+			"Committing Crimes"
+		],
+		'percentages' => [
+			"5%",
+			"50%",
+			"99%"
 		],
 		'fact' => "I have never been to jail and I enjoy watching the news."
 	],
@@ -46,9 +56,14 @@ $students = [
 					created me is not very creative so they could not think of anything else.",
 		'quote' => '"It really be like that sometimes" -anonymous',
 		'skills' => [
-			"Being a Fun Person" => "20%",
-			"Manning the Grill at a Cookout" => "70%",
-			"Cooking" => "95%"
+			"Being a Fun Person",
+			"Manning the Grill at a Cookout",
+			"Cooking"
+		],
+		'percentages' => [
+			"20%",
+			"70%",
+			"95%"
 		],
 		'fact' => "I am not a very fun person"
 	]

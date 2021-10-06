@@ -1,4 +1,4 @@
-<?php
+<?php 
 require('csv_util.php');
 
 $authors = csvToArray('authors.csv');
@@ -8,15 +8,19 @@ $originalAuthor = $_GET['author'];
 
 for($i = 0; $i < count($quotes); $i++) {
     $quote = $quotes[$i][0];
-    if($originalQuote == $quote)
+    if($originalQuote == $quote) {
         $quoteIndex = $i;
+		$quoteAuthorIndex = $quotes[$i][1];
+	}
 }
 
-function displayAuthors($authors, $i) {
-    $author = $authors[$i][0] . " " . $authors[$i][1];
-    ?>
-    <option value="<?=$author?>"><?=$author?></option>
-    <?php
+function displayAuthors($authors, $i, $isQuoteAuthor=false) {
+	if($isQuoteAuthor)
+		$selected = 'selected';
+	else
+		$selected = '';
+    $author = $authors[0] . " " . $authors[1];
+    echo '<option value="'.$i.'" '.$selected.'>'.$author.'</option>';
 }
 
 if(isset($_POST['submit'])) {
@@ -25,7 +29,7 @@ if(isset($_POST['submit'])) {
         if($_POST['authors'] == $author)
             $index = $i;
     }
-    modifyCSVRecord('quotes.csv',array($_POST['quote'], $index), $quoteIndex);
+    modifyCSVRecord('quotes.csv',array($_POST['quote'], $_POST['authors']), $quoteIndex);
 }
 ?>
 <!doctype html>
@@ -44,7 +48,11 @@ if(isset($_POST['submit'])) {
         <select id="authors" name="authors">
             <?php
             for($i = 0; $i < count($authors); $i++) {
-                displayAuthors($authors, $i);
+				if($quoteAuthorIndex == $i)
+					$selected = true;
+				else
+					$selected = false;
+                displayAuthors($authors[$i], $i, $selected);
             }
             ?>
         </select><br><br>

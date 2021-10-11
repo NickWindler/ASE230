@@ -1,0 +1,17 @@
+body{
+	background:#eee;
+}
+
+label {
+	font-size: 30px;
+}
+
+.textbox {
+	height: 20px;
+	font-size: 20px;
+}
+
+#authors {
+	height: 25px;
+	width: 155px;
+}

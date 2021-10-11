@@ -1,0 +1,16 @@
+body{margin-top:20px;
+	background:#eee;
+}
+
+.quote {
+	text-decoration: none;
+	color: black;
+}
+
+.quote:hover {
+	color: grey;
+}
+
+.quote_author {
+	display: flex;
+}

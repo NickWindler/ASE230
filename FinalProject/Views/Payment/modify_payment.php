@@ -6,7 +6,7 @@ is_logged();
 if($_SESSION['logged'] == false)
     header("Location:../index.php");
 
-$stmt = $db->query('SELECT * FROM payments WHERE ID = ?');
+$stmt = $db->prepare('SELECT * FROM payments WHERE ID = ?');
 $stmt->execute([$_GET['id']]);
 $paymentDetails = $stmt->fetch();
 ?>
@@ -19,7 +19,7 @@ $paymentDetails = $stmt->fetch();
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.88.1">
-    <title>Tofoo Modify Address</title>
+    <title>Tofoo Modify Payment</title>
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/sign-in/">
     <link href="../../css/bootstrap.min.css" rel="stylesheet">
     <link href="../../Style/sign-in.css" rel="stylesheet">

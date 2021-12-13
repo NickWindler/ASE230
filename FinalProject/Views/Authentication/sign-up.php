@@ -1,5 +1,6 @@
 <?php
 require('../../Functions/auth_functions.php');
+require('../../DB/db_connect.php');
 session_start();
 is_logged();
 

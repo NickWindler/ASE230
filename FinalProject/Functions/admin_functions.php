@@ -2,7 +2,7 @@
 require('profile_functions.php');
 require('restaurant_functions.php');
 require('meal_functions.php');
-require('../DB/db_connect.php');
+require('C:\xampp\htdocs\FinalProject\DB\db_connect.php');
 
 $restaurantFunctions = new restaurantFunctions();
 $mealFunctions = new mealFunctions();

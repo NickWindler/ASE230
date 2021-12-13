@@ -10,10 +10,12 @@ class userFunctions {
         return $array;
     }
 
-    function modifyUser($id, $fName, $lName, $email, $password, $phone, $db) {
+    function modifyUser($id, $fName, $lName, $email, $password, $phone, $loggedUser, $db) {
         $stmt = $db->prepare('UPDATE users SET first_name = ?, last_name = ?, email = ?, password = ?, phone = ? WHERE ID = ?');
         $stmt->execute([$fName, $lName, $email, $password, $phone, $id]);
         $stmt->fetch();
+		if($loggedUser == $id)
+			$_SESSION['email'] = $email;
         echo "<script>window.location.href='profile.php?id=".$id."';
 		 alert('Profile has been modified')</script>";
     }

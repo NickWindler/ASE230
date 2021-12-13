@@ -6,7 +6,7 @@ is_logged();
 if($_SESSION['logged'] == false)
     header("Location:../index.php");
 
-$stmt = $db->query('SELECT * FROM meals WHERE ID = ?');
+$stmt = $db->prepare('SELECT * FROM meals WHERE ID = ?');
 $stmt->execute([$_GET['id']]);
 $meal = $stmt->fetch();
 ?>

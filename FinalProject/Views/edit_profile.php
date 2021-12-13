@@ -64,7 +64,7 @@ $loggedUser = $stmt->fetch();
         if(isset($_POST['submit'])) {
             if($_POST['password'] == $_POST['rtPass']) {
                 if(strlen($_POST['password'])>=8 and strlen($_POST['password'])<=16) {
-                    $userFunctions->modifyUser($_GET['id'], $_POST['fName'], $_POST['lName'], $_POST['email'], $_POST['password'], $_POST['phone'], $db);
+                    $userFunctions->modifyUser($_GET['id'], $_POST['fName'], $_POST['lName'], $_POST['email'], $_POST['password'], $_POST['phone'], $loggedUser['ID'], $db);
                 }
                 else
                     echo 'Password needs to be between 8 - 16 characters';

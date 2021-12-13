@@ -7,7 +7,7 @@ if($_SESSION['logged'] == false)
     header("Location:../index.php");
 
 $price = 0;
-$orderDetails = $orderFunctions->getOrderDetails($_GET['id']);
+$orderDetails = $orderFunctions->getOrderDetails($_GET['id'], $db);
 ?>
 
 <!doctype html>
@@ -25,12 +25,12 @@ $orderDetails = $orderFunctions->getOrderDetails($_GET['id']);
 </head>
 <body class="text-center">
 <main class="form-signin">
-    <h1 class="h3 mb-3 fw-normal">Order Details</h1>
+    <h1 class="h3 mb-3 fw-normal">Order Details: <?=$orderDetails[0]['restaurant_name']?></h1>
     <ul style="display: inline;">
         <li style="display: inline;"><strong>Meals: </strong></li>
         <?php for($i = 0; $i < count($orderDetails); $i++):?>
             <?php $price = $price + $orderDetails[$i]['price']?>
-            <li style="display: inline;"><?=$orderDetails[$i]['name']?> (<?=$orderDetails[$i]['restaurant_name']?>)</li>
+            <li style="display: inline;"><?=$orderDetails[$i]['name']?>, </li>
         <?php endfor;?>
     </ul>
     <br><br>
@@ -43,7 +43,7 @@ $orderDetails = $orderFunctions->getOrderDetails($_GET['id']);
         <?php if($orderDetails[0]['status'] == 1):?>
             Delivered
         <?php endif;?></p>
-    <a href="../profile.php?id=<?=$_GET['id']?>"><strong>Back to Profile</strong></a>
+    <a href="../profile.php?id=<?=$res['ID']?>"><strong>Back to Profile</strong></a>
 </main>
 </body>
 </html>

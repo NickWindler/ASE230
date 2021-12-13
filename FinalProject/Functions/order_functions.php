@@ -22,13 +22,17 @@ class orderFunctions {
 		return $array;
 	}
 	
-	function createPayment($userID, $cardNumber, $securityCode, $expDate) {
-		require('C:\xampp\htdocs\FinalProject\DB\db_connect.php');
-		$stmt = $db->prepare('INSERT INTO payments (user_id, card_number, security_code, expiration_date) VALUES (?, ?, ?, ?)');
-		$stmt->execute([$userID, $cardNumber, $securityCode, $expDate]);
+	function createOrder($userID, $date, $meals, $db) {
+		$stmt = $db->prepare('INSERT INTO orders (user_id, status, date) VALUES (?, 0, ?)');
+		$stmt->execute([$userID, $date]);
 		$stmt->fetch();
-		echo "<script>alert('Payment option has been created');
-		 window.location.href='../profile.php'</script>";
+		$maxID = $db->query('SELECT MAX(ID) FROM orders');
+		$maxID = $maxID->fetch();
+		for($i = 0; $i < count($meals); $i++) {
+			$insert = $db->query('INSERT INTO meals_orders (order_id, meal_id) VALUES ('.$maxID['MAX(ID)'].', '.$meals[$i][2].')');
+			$insert->fetch();
+		}
+		unset($_SESSION['cart']);
 	}
 	
 }

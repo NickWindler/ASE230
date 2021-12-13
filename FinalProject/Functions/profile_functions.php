@@ -3,7 +3,7 @@ require('address_functions.php');
 require('payment_functions.php');
 require('order_functions.php');
 require('user_functions.php');
-require('../DB/db_connect.php');
+require('C:\xampp\htdocs\FinalProject\DB\db_connect.php');
 session_start();
 
 if(count($_SESSION) > 1) {

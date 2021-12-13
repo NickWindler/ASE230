@@ -66,7 +66,7 @@ while ($row = $stmt->fetch())
         <?php for($i = 0; $i < count($restaurants); $i++):?>
         <div style="width: 100%; height: 200px;">
             <img src="<?=$restaurants[$i]['image_url']?>" height="200px" width="200px" style="float: left; padding-right: 10px">
-            <h2><a style="text-decoration: none; color: black;" href="order_meal_select.php?typeID=<?=$restaurants[$i]['type_id']?>&rID=<?=$restaurants[$i]['ID']?>"><?= $restaurants[$i]['name']?></a></h2>
+            <h2><a style="text-decoration: none; color: black;" href="Orders/order_meal_select.php?typeID=<?=$restaurants[$i]['type_id']?>&rID=<?=$restaurants[$i]['ID']?>&rName=<?= $restaurants[$i]['name']?>"><?= $restaurants[$i]['name']?></a></h2>
             <h5>Location:</h5>
             <p style="margin-top:-10px;"><?=$restaurants[$i]['street']?></p>
             <p style="margin-top:-20px;"><?=$restaurants[$i]['city']?>, <?=$restaurants[$i]['state']?> <?=$restaurants[$i]['zip']?></p>

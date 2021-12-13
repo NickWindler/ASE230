@@ -6,7 +6,7 @@ is_logged();
 if($_SESSION['logged'] == false)
     header("Location:../index.php");
 
-$mealArray = $mealFunctions->getMealsForRestaurant($_GET['id']);
+$mealArray = $mealFunctions->getMealsForRestaurant($_GET['id'], $db);
 ?>
 
 <!doctype html>

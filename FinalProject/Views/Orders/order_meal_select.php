@@ -3,6 +3,8 @@ require('../../Functions/auth_functions.php');
 require('../../Functions/admin_functions.php');
 
 $meals = $mealFunctions->getMealsForRestaurant($_GET['rID'], $db);
+$addressArray = $addressFunctions->getAddressesForUser($res['ID'], $db);
+$paymentArray = $paymentFunctions->getPaymentOptionsForUser($res['ID'], $db);
 
 $cart = [];
 if(isset($_SESSION['cart']))
@@ -19,6 +21,8 @@ if(isset($_POST['next']) && isset($_SESSION['cart']))
 if(isset($_POST['next']) && !isset($_SESSION['cart']))
     echo "<h1 style='text-align: center; color: red'>You must order at least one item before continuing</h1>";
 
+if(count($addressArray) == 0 or count($paymentArray) == 0)
+	header('Location:../order.php')
 ?>
 <!doctype html>
 <html lang="en">

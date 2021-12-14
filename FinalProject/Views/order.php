@@ -3,8 +3,10 @@ require('../Functions/auth_functions.php');
 require('../Functions/admin_functions.php');
 is_logged();
 
-$addressArray = $addressFunctions->getAddressesForUser($res['ID'], $db);
-$paymentArray = $paymentFunctions->getPaymentOptionsForUser($res['ID'], $db);
+if($_SESSION['logged'] == true) {
+	$addressArray = $addressFunctions->getAddressesForUser($res['ID'], $db);
+	$paymentArray = $paymentFunctions->getPaymentOptionsForUser($res['ID'], $db);
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -77,9 +79,9 @@ $paymentArray = $paymentFunctions->getPaymentOptionsForUser($res['ID'], $db);
                     </div>
                 </form>
             <?php endif;?>
-        <?php endif;?>
-        <?php if(count($addressArray) == 0 or count($paymentArray) == 0):?>
-            <h3>Please make sure you have at least one payment option and one address created</h3>
+			<?php if(count($addressArray) == 0 or count($paymentArray) == 0):?>
+				<h3>Please make sure you have at least one payment option and one address created</h3>
+			<?php endif;?>
         <?php endif;?>
         <?php if($_SESSION['logged'] == false):?>
             <h3>Please <a href="Authentication/sign-in.php">sign in</a> to order. Don't have an account? Sign-up <a href="Authentication/sign-up.php">here</a> today!</h3>
